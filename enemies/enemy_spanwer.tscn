@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://byrakfgwvd18l"]
+
+[ext_resource type="Script" uid="uid://cs0sv0etcnsj6" path="res://enemies/scripts/enemy_spanwer.gd" id="1_vp2ku"]
+[ext_resource type="PackedScene" uid="uid://hkt6ex5o041t" path="res://enemies/enemy.tscn" id="2_dhlum"]
+
+[node name="enemy_spanwer" type="Node2D"]
+script = ExtResource("1_vp2ku")
+ene = ExtResource("2_dhlum")

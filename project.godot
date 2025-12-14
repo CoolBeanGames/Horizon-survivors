@@ -27,6 +27,7 @@ SCENE="*res://Base/Autoloads/scene_manager.gd"
 [global_group]
 
 player="used to define the player character"
+enemy=""
 
 [input]
 

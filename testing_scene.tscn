@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_7tmfp"]
 [ext_resource type="Script" uid="uid://cet3k80sddhiw" path="res://entities/border.gd" id="2_j6xku"]
 [ext_resource type="PackedScene" uid="uid://dlfvcws3guljp" path="res://player/player.tscn" id="3_j6xku"]
-[ext_resource type="PackedScene" uid="uid://hkt6ex5o041t" path="res://enemies/enemy.tscn" id="4_map4d"]
+[ext_resource type="PackedScene" uid="uid://byrakfgwvd18l" path="res://enemies/enemy_spanwer.tscn" id="4_map4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_map4d"]
 size = Vector2(129, 129)
@@ -55,5 +55,8 @@ shape = SubResource("RectangleShape2D_map4d")
 [node name="player" parent="temp_world" instance=ExtResource("3_j6xku")]
 position = Vector2(630, 309)
 
-[node name="enemy" parent="temp_world" instance=ExtResource("4_map4d")]
-position = Vector2(-629, 387)
+[node name="enemy_spanwer" parent="." instance=ExtResource("4_map4d")]
+position = Vector2(-601, 286)
+
+[node name="enemy_spanwer2" parent="." instance=ExtResource("4_map4d")]
+position = Vector2(1944, 240)

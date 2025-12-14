@@ -1,16 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlfvcws3guljp"]
+[gd_scene load_steps=7 format=3 uid="uid://dlfvcws3guljp"]
 
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://k41p2bji2q5c" path="res://player/scripts/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://ch5y43cij057a" path="res://weapons/spawnables/scripts/bullet.tscn" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://c4mqawosk62a2" path="res://weapons/instances/test_gun.gd" id="3_qjkh3"]
+
+[sub_resource type="Resource" id="Resource_g6k8r"]
+script = ExtResource("3_qjkh3")
+damage = 5
+effect = ExtResource("2_yw30f")
+metadata/_custom_type_script = "uid://c4mqawosk62a2"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 65.0
 height = 230.0
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_rkbax")
 SPEED = 600.0
 JUMP_VELOCITY = -750.0
+weapons = Dictionary[String, Object]({
+"gun": SubResource("Resource_g6k8r")
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rkbax")

@@ -9,6 +9,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+
+@export var hp : int = 5
 @export var player_refernce : player
 
 func _ready() -> void:
@@ -43,3 +45,8 @@ func _physics_process(delta: float) -> void:
 func kill():
 	DATA.read("enemies").erase(self)
 	queue_free()
+
+func damage(dmg : int):
+	hp -= dmg
+	if hp <= 0:
+		kill()

@@ -8,10 +8,19 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
+@export var closest_enemy : enemy
+@export var direction_to_enemy : Vector2
+
+@export var weapons : Dictionary[String,weapon] = {}
 
 func _ready() -> void:
 	REFS.write("player",self)
 
+func _process(_delta: float) -> void:
+	closest_enemy = find_nearest_enemy()
+	direction_to_enemy = get_direction_to_enemy(closest_enemy)
+	for w in weapons.values():
+		w.count_down(_delta,self,closest_enemy,direction_to_enemy)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,3 +40,21 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func find_nearest_enemy() -> enemy:
+	var enemies = DATA.read("enemies",[])
+	if enemies.size() > 0:
+		var distance := INF
+		var current_enemy : enemy = null
+		for e in enemies:
+			var d = (e.global_position - global_position).length()
+			if d < distance:
+				distance = d
+				current_enemy = e
+		return current_enemy
+	return null
+
+func get_direction_to_enemy(e : enemy) -> Vector2:
+	if e == null:
+		return Vector2(0,0)
+	return (e.global_position - global_position).normalized()
