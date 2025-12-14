@@ -1,3 +1,7 @@
+##script written by Dustin Booher
+#purpose: spawns enemies at a random interval
+##created: 12/14/25
+##last edited: 12/14/25
 class_name enemy_spawner
 extends Node2D
 

@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -400.0
 @export var closest_enemy : enemy
 @export var direction_to_enemy : Vector2
+@export var facing_direction : int
 
 @export var weapons : Dictionary[String,weapon] = {}
 
@@ -36,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		facing_direction =  sign(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

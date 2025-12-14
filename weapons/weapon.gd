@@ -1,3 +1,7 @@
+##script written by Dustin Booher
+#purpose: base class for weapons, used to attack
+##created: 12/14/25
+##last edited: 12/14/25
 @abstract
 class_name weapon
 extends Resource

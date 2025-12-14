@@ -1,6 +1,6 @@
 ##written by Dustin Booher
 ##creation date 12/4/25
-##last edited   12/4/25
+##last edited   12/14/25
 class_name audio_manager
 extends Node
 
@@ -23,13 +23,13 @@ func kill_all_audio():
 
 ##call to play audio
 func play_audio(clip : AudioStream, linear_volume : float) -> audio_player:
-	var player : audio_player = stack_source.pop(player_scene)
-	if !player:
+	var plr : audio_player = stack_source.pop(player_scene)
+	if !plr:
 		push_warning("could not initialize audio player")
 		return null
-	player.start(clip,stack_source,linear_volume)
-	playing_audio.append(player)
-	return player
+	plr.start(clip,stack_source,linear_volume)
+	playing_audio.append(plr)
+	return plr
 
 ##called when the stack returns something, removes it from the list
 func returned_to_stack(object):
