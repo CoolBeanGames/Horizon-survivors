@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dui4v81st57r5"]
+
+[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_7tmfp"]
+[ext_resource type="Script" uid="uid://cet3k80sddhiw" path="res://entities/border.gd" id="2_j6xku"]
+[ext_resource type="PackedScene" uid="uid://dlfvcws3guljp" path="res://player/player.tscn" id="3_j6xku"]
+[ext_resource type="PackedScene" uid="uid://hkt6ex5o041t" path="res://enemies/enemy.tscn" id="4_map4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_map4d"]
+size = Vector2(129, 129)
+
+[node name="testing_scene" type="Node2D"]
+
+[node name="temp_world" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="temp_world"]
+position = Vector2(675, 587)
+scale = Vector2(24.400005, 1)
+texture = ExtResource("1_7tmfp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="temp_world/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_world/Sprite2D/StaticBody2D"]
+modulate = Color(0.043039158, 0.04303915, 0.04303915, 1)
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_map4d")
+
+[node name="border" type="Sprite2D" parent="temp_world"]
+position = Vector2(-832, -98)
+scale = Vector2(-1.3703707, 9.896296)
+texture = ExtResource("1_7tmfp")
+script = ExtResource("2_j6xku")
+goal_distance = 700.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="temp_world/border"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_world/border/StaticBody2D"]
+modulate = Color(0.043039158, 0.04303915, 0.04303915, 1)
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_map4d")
+
+[node name="border2" type="Sprite2D" parent="temp_world"]
+position = Vector2(2182, -98)
+scale = Vector2(-1.3703707, 9.896296)
+texture = ExtResource("1_7tmfp")
+script = ExtResource("2_j6xku")
+goal_distance = 700.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="temp_world/border2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp_world/border2/StaticBody2D"]
+modulate = Color(0.043039158, 0.04303915, 0.04303915, 1)
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_map4d")
+
+[node name="player" parent="temp_world" instance=ExtResource("3_j6xku")]
+position = Vector2(630, 309)
+
+[node name="enemy" parent="temp_world" instance=ExtResource("4_map4d")]
+position = Vector2(-629, 387)

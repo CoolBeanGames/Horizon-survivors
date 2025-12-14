@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn0x43d8x8ymk"]
+
+[ext_resource type="Script" uid="uid://2rmomldhdlw" path="res://Base/Scripts/game_manager.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://s7q4dxkuylv8" path="res://Base/Scripts/stack.gd" id="2_fc0e3"]
+[ext_resource type="Script" uid="uid://bkiucfxapx2nr" path="res://Base/Scripts/game_states/game_preload_state.gd" id="3_7jktm"]
+[ext_resource type="Script" uid="uid://5iir7yr7gfxy" path="res://Base/Scripts/game_states/game_title_state.gd" id="4_ryrav"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("scene_root", "audio_stack", "states")]
+script = ExtResource("1_80nbo")
+scene_root = NodePath("Scene_Root")
+audio_stack = NodePath("Audio_stack")
+states = {
+"preload": NodePath("State_machine/preload"),
+"title": NodePath("State_machine/title")
+}
+
+[node name="Scene_Root" type="Node" parent="."]
+
+[node name="Audio_stack" type="Node" parent="."]
+script = ExtResource("2_fc0e3")
+
+[node name="State_machine" type="Node" parent="."]
+
+[node name="preload" type="Node" parent="State_machine"]
+script = ExtResource("3_7jktm")
+
+[node name="title" type="Node" parent="State_machine"]
+script = ExtResource("4_ryrav")
+
+[node name="game" type="Node" parent="State_machine"]
