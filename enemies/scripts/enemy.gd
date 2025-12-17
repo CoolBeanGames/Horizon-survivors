@@ -12,9 +12,14 @@ const JUMP_VELOCITY = -400.0
 
 @export var hp : int = 5
 @export var player_refernce : player
+@export var shape : CollisionShape2D
+@export var dead : bool = false
+@export var flipped : bool = false
+@export var sprite : Node2D
 
 func _ready() -> void:
 	await get_tree().process_frame
+	sprite.play("default")
 	player_refernce = REFS.read("player")
 	
 	#register with data
@@ -25,6 +30,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		rotate(deg_to_rad(10))
+		velocity += get_gravity() * delta
+		velocity.x = 0
+		move_and_slide()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -35,6 +46,10 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var direction := (player_refernce.global_position - global_position).normalized().x
+	flipped = sign(direction) == 1
+	sprite.flip_h = flipped
+	
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -44,9 +59,18 @@ func _physics_process(delta: float) -> void:
 
 func kill():
 	DATA.read("enemies").erase(self)
-	queue_free()
+	set_collision_mask_value(1,false)
+	set_collision_mask_value(3,false)
+	set_collision_layer_value(2,false)
+	set_collision_layer_value(24,true)
+	velocity.y -= 500
+	get_tree().create_timer(2).timeout.connect(destroy)
+	dead = true
 
 func damage(dmg : int):
 	hp -= dmg
 	if hp <= 0:
 		kill()
+
+func destroy():
+	queue_free()

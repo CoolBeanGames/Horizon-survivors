@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://7gljb4xb2wuc"]
+
+[ext_resource type="Script" uid="uid://bsb6ogbb5fh1t" path="res://weapons/instances/test_lightening.gd" id="1_or5wr"]
+[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="2_02unp"]
+
+[node name="test_lightening" type="Node2D"]
+script = ExtResource("1_or5wr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -545.84)
+scale = Vector2(0.2, 10)
+texture = ExtResource("2_02unp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlfvcws3guljp"]
+[gd_scene load_steps=14 format=3 uid="uid://dlfvcws3guljp"]
 
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://k41p2bji2q5c" path="res://player/scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://cktky4cx7yor8" path="res://weapons/weapon.gd" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://ch5y43cij057a" path="res://weapons/spawnables/scripts/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://c4mqawosk62a2" path="res://weapons/instances/test_gun.gd" id="3_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://ck4tcovlv414b" path="res://enemies/melee_area.tscn" id="4_g6k8r"]
 [ext_resource type="Script" uid="uid://b6svm7sm3fq4e" path="res://weapons/instances/test_melee.gd" id="5_boad6"]
+[ext_resource type="PackedScene" uid="uid://7gljb4xb2wuc" path="res://weapons/spawnables/test_lightening.tscn" id="7_8t03j"]
+[ext_resource type="Script" uid="uid://byo7k017483lg" path="res://weapons/instances/test_local.gd" id="8_2ieo8"]
 
 [sub_resource type="Resource" id="Resource_g6k8r"]
 script = ExtResource("3_qjkh3")
@@ -20,6 +23,13 @@ cool_down = 1.0
 effect = ExtResource("4_g6k8r")
 metadata/_custom_type_script = "uid://b6svm7sm3fq4e"
 
+[sub_resource type="Resource" id="Resource_ebec5"]
+script = ExtResource("8_2ieo8")
+damage = 10
+cool_down = 5.0
+effect = ExtResource("7_8t03j")
+metadata/_custom_type_script = "uid://byo7k017483lg"
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 65.0
 height = 230.0
@@ -29,8 +39,9 @@ collision_mask = 3
 script = ExtResource("1_rkbax")
 SPEED = 600.0
 JUMP_VELOCITY = -750.0
-weapons = Dictionary[String, Object]({
+weapons = Dictionary[String, ExtResource("2_hg6s5")]({
 "gun": SubResource("Resource_g6k8r"),
+"lightening": SubResource("Resource_ebec5"),
 "melee": SubResource("Resource_rgyib")
 })
 

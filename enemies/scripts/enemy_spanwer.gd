@@ -6,20 +6,27 @@ class_name enemy_spawner
 extends Node2D
 
 var spawn_time : float = 0
+@export var min_time : float = 2
+@export var max_time : float = 5
 @export var ene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_time = randf_range(2,5)
-	pass # Replace with function body.
+	spawn_time = randf_range(min_time,max_time)
 
+func set_time():
+	spawn_time = randf_range(min_time,max_time)
+	min_time -= randf_range(0,0.02)
+	max_time -= randf_range(0,0.03)
+	min_time = clamp(min_time,0.2,2)
+	max_time = clamp(max_time,0.5,5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !is_on_screen():
 		spawn_time -= delta
 		if spawn_time <= 0:
-			spawn_time = randf_range(2,5)
+			set_time()
 			spawn()
 
 func is_on_screen() -> bool:

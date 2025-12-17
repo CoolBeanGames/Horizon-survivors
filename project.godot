@@ -24,6 +24,10 @@ INPUT="*res://Base/Autoloads/input_manager.gd"
 REFS="*res://Base/Autoloads/reference_manager.gd"
 SCENE="*res://Base/Autoloads/scene_manager.gd"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/CallM/OneDrive/Documentos/new_monster.avi"
+
 [global_group]
 
 player="used to define the player character"

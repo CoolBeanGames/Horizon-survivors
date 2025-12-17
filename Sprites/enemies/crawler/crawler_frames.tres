@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d3ohxsx32vetd"]
+
+[ext_resource type="Texture2D" uid="uid://r5ntfndq5sdo" path="res://Sprites/enemies/crawler/crawler_1.png" id="1_vh12b"]
+[ext_resource type="Texture2D" uid="uid://bw1xx2fm5tjn8" path="res://Sprites/enemies/crawler/crawler_2.png" id="2_g4rcl"]
+[ext_resource type="Texture2D" uid="uid://by2372es8wkee" path="res://Sprites/enemies/crawler/crawler_3.png" id="3_wm6mg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vh12b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g4rcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_vh12b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wm6mg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
