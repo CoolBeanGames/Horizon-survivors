@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://45tinej5ewd1"]
+
+[ext_resource type="Script" uid="uid://bv2faaly861cl" path="res://enemies/scripts/enemy_bonk_area.gd" id="1_4l16i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwcn3"]
+
+[node name="enemy_bonk_area" type="Area2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_4l16i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lwcn3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -15,3 +15,4 @@ func fire(_plr : player , enm : enemy,_dir : Vector2):
 		_plr.get_tree().root.add_child(instance)
 		instance.global_position = enm.global_position
 		instance.setup(damage,enm)
+		play_audio()

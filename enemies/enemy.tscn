@@ -1,29 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://hkt6ex5o041t"]
+[gd_scene load_steps=8 format=3 uid="uid://hkt6ex5o041t"]
 
 [ext_resource type="Script" uid="uid://dtq4p4s5hvfsq" path="res://enemies/scripts/enemy.gd" id="1_fw1ev"]
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="2_7frlh"]
+[ext_resource type="AudioStream" uid="uid://c7nw4t0x6ospt" path="res://audio/sound effects/monsters/articulated_MONSTER+Yeti+cry+02.mp3" id="2_07tka"]
 [ext_resource type="SpriteFrames" uid="uid://d3ohxsx32vetd" path="res://Sprites/enemies/crawler/crawler_frames.tres" id="3_orwns"]
+[ext_resource type="PackedScene" uid="uid://45tinej5ewd1" path="res://enemies/enemy_bonk_area.tscn" id="4_a6vjd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_orwns"]
-radius = 62.514
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07tka"]
+radius = 53.0
+height = 150.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t1x0"]
+size = Vector2(92, 28)
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("shape", "sprite") groups=["enemy"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_fw1ev")
 shape = NodePath("CollisionShape2D")
 sprite = NodePath("AnimatedSprite2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 0.44395873, 0.3727404, 1)
-texture = ExtResource("2_7frlh")
+death_sound = ExtResource("2_07tka")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_orwns")
+position = Vector2(1, 11)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_07tka")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.999999, -10.999999)
 scale = Vector2(0.62, 0.62)
 sprite_frames = ExtResource("3_orwns")
 frame_progress = 0.4142883
+
+[node name="enemy_bonk_area" parent="." node_paths=PackedStringArray("attached_enemy") instance=ExtResource("4_a6vjd")]
+position = Vector2(0, -56)
+attached_enemy = NodePath("..")
+
+[node name="CollisionShape2D" parent="enemy_bonk_area" index="0"]
+position = Vector2(-1, -3)
+shape = SubResource("RectangleShape2D_3t1x0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.44395873, 0.3727404, 1)
+texture = ExtResource("2_7frlh")
+
+[editable path="enemy_bonk_area"]
