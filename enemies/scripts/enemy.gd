@@ -18,6 +18,7 @@ const JUMP_VELOCITY = -400.0
 @export var sprite : Node2D
 @export var death_sound : AudioStream = null
 @export var bonk_area : Node2D
+@export var death_explision : PackedScene
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -72,6 +73,9 @@ func kill():
 		AUDIO.play_audio(death_sound,0.5)
 	if bonk_area!=null:
 		bonk_area.queue_free()
+	var exp : Node2D = death_explision.instantiate()
+	SCENE.scene_root.add_child(exp)
+	exp.global_position = global_position
 
 func damage(dmg : int):
 	hp -= dmg

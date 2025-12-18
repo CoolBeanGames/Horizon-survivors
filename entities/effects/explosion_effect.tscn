@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8pqapd58snx"]
+
+[ext_resource type="SpriteFrames" uid="uid://bax4yduqxu16f" path="res://Sprites/effects/explosion_purple.tres" id="1_fn4co"]
+[ext_resource type="Script" uid="uid://bbcvald124u0k" path="res://entities/effects/explosion_effect.gd" id="2_tsfrb"]
+
+[node name="explosion_effect" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_fn4co")
+frame_progress = 0.8801027
+script = ExtResource("2_tsfrb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
