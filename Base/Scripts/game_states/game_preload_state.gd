@@ -7,6 +7,7 @@ extends game_state
 ##called when first entering the state
 func on_enter():
 	SCENE.scene_load("res://testing_scene.tscn")
+	REFS.read("game").setup_weapon_pool()
 	pass
 
 #called when exiting the state

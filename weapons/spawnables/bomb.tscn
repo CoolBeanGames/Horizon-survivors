@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://nl1rbq5qh4y6"]
+
+[ext_resource type="Script" uid="uid://kgn3nk5cmn5a" path="res://weapons/spawnables/bomb_manager.gd" id="1_1wbv7"]
+[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_12mxb"]
+[ext_resource type="PackedScene" uid="uid://cytgp2uoapinc" path="res://weapons/spawnables/explosion.tscn" id="2_r1iqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1wbv7"]
+radius = 29.410883
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1iqv"]
+radius = 69.065186
+
+[node name="bomb" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1wbv7")
+explosion_prefab = ExtResource("2_r1iqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.0000019, 1.5)
+scale = Vector2(0.46875, 0.4765625)
+texture = ExtResource("1_12mxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1wbv7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="explosion_trigger" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r1iqv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

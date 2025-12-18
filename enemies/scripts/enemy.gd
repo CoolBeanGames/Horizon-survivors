@@ -17,6 +17,7 @@ const JUMP_VELOCITY = -400.0
 @export var flipped : bool = false
 @export var sprite : Node2D
 @export var death_sound : AudioStream = null
+@export var bonk_area : Node2D
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -69,6 +70,8 @@ func kill():
 	dead = true
 	if death_sound != null:
 		AUDIO.play_audio(death_sound,0.5)
+	if bonk_area!=null:
+		bonk_area.queue_free()
 
 func damage(dmg : int):
 	hp -= dmg
