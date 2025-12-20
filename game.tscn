@@ -1,14 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn0x43d8x8ymk"]
+[gd_scene load_steps=12 format=3 uid="uid://dn0x43d8x8ymk"]
 
 [ext_resource type="Script" uid="uid://2rmomldhdlw" path="res://Base/Scripts/game_manager.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://s7q4dxkuylv8" path="res://Base/Scripts/stack.gd" id="2_fc0e3"]
+[ext_resource type="Script" uid="uid://cktky4cx7yor8" path="res://weapons/weapon.gd" id="2_hve3p"]
 [ext_resource type="Script" uid="uid://bkiucfxapx2nr" path="res://Base/Scripts/game_states/game_preload_state.gd" id="3_7jktm"]
+[ext_resource type="Resource" uid="uid://cgkpwducdv6mc" path="res://data/weapons/bomb_glove.tres" id="3_mfdv2"]
+[ext_resource type="Resource" uid="uid://d0u6ebpdgpkpl" path="res://data/weapons/bonk.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://5iir7yr7gfxy" path="res://Base/Scripts/game_states/game_title_state.gd" id="4_ryrav"]
+[ext_resource type="Resource" uid="uid://chwuoeit8xgnr" path="res://data/weapons/gun.tres" id="5_lc2xo"]
+[ext_resource type="Resource" uid="uid://cvgonse08y4mi" path="res://data/weapons/lightening.tres" id="6_215e1"]
+[ext_resource type="Resource" uid="uid://dqi7f40kdmgyi" path="res://data/weapons/silver_sword.tres" id="7_7sc4i"]
+[ext_resource type="Resource" uid="uid://b5cynqbtlxurb" path="res://data/weapons/tomb_of_knowledge.tres" id="8_mfdv2"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("scene_root", "audio_stack", "states")]
+process_mode = 3
 script = ExtResource("1_80nbo")
 scene_root = NodePath("Scene_Root")
 audio_stack = NodePath("Audio_stack")
+weapons = Array[ExtResource("2_hve3p")]([ExtResource("3_mfdv2"), ExtResource("4_iotsf"), ExtResource("5_lc2xo"), ExtResource("6_215e1"), ExtResource("7_7sc4i"), ExtResource("8_mfdv2")])
 states = {
 "preload": NodePath("State_machine/preload"),
 "title": NodePath("State_machine/title")

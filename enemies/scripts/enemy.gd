@@ -19,6 +19,7 @@ const JUMP_VELOCITY = -400.0
 @export var death_sound : AudioStream = null
 @export var bonk_area : Node2D
 @export var death_explision : PackedScene
+@export var xp_to_drop : int = 1
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -76,6 +77,7 @@ func kill():
 	var exp : Node2D = death_explision.instantiate()
 	SCENE.scene_root.add_child(exp)
 	exp.global_position = global_position
+	player_refernce.gain_xp(xp_to_drop)
 
 func damage(dmg : int):
 	hp -= dmg

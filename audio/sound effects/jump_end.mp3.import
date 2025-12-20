@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jm2q5iw1y6eu"
+path="res://.godot/imported/jump_end.mp3-7380ca561e4dca27ad9846d3ed0308d5.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/jump_end.mp3"
+dest_files=["res://.godot/imported/jump_end.mp3-7380ca561e4dca27ad9846d3ed0308d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

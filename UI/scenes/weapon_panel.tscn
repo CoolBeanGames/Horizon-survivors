@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6hdwukbfdir"]
+
+[ext_resource type="Script" uid="uid://5qpk680tdy" path="res://UI/level_up_panel.gd" id="1_vkuru"]
+[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="2_puie4"]
+
+[node name="Panel_0" type="Panel" node_paths=PackedStringArray("weapon_name", "weapon_icon", "weapon_description", "stars_container")]
+process_mode = 3
+size_flags_horizontal = 3
+script = ExtResource("1_vkuru")
+weapon_name = NodePath("VBoxContainer/weapon_name")
+weapon_icon = NodePath("VBoxContainer/weapon_icon")
+weapon_description = NodePath("VBoxContainer/weapon_description")
+stars_container = NodePath("VBoxContainer/stars")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weapon_name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "weapon_name"
+horizontal_alignment = 1
+
+[node name="weapon_icon" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_puie4")
+stretch_mode = 4
+
+[node name="weapon_description" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "this is some weapon, you will be able to pick this up and gain some new powerup. who knows what it can do?"
+
+[node name="stars" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="select" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_down" from="VBoxContainer/select" to="." method="_on_select_button_down"]

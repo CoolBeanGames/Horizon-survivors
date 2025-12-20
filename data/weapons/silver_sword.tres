@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="test_melee" load_steps=4 format=3 uid="uid://dqi7f40kdmgyi"]
+
+[ext_resource type="AudioStream" uid="uid://f5vmsvfpfjxs" path="res://audio/sound effects/attacks/zapsplat_warfare_sword_swing_medium_whoosh_blade_ring_002_43816.mp3" id="1_3ggs3"]
+[ext_resource type="PackedScene" uid="uid://ck4tcovlv414b" path="res://enemies/melee_area.tscn" id="2_3k5a7"]
+[ext_resource type="Script" uid="uid://b6svm7sm3fq4e" path="res://weapons/instances/silver_sword.gd" id="3_pf55r"]
+
+[resource]
+script = ExtResource("3_pf55r")
+damage = 3
+cool_down = 1.0
+weapon_name = "silver sword"
+effect = ExtResource("2_3k5a7")
+audio = ExtResource("1_3ggs3")
+metadata/_custom_type_script = "uid://b6svm7sm3fq4e"

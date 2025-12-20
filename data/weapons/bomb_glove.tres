@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="bomb_glove" load_steps=3 format=3 uid="uid://cgkpwducdv6mc"]
+
+[ext_resource type="PackedScene" uid="uid://nl1rbq5qh4y6" path="res://weapons/spawnables/bomb.tscn" id="1_hpve5"]
+[ext_resource type="Script" uid="uid://cwqnd4y0gio2g" path="res://weapons/instances/bomb_glove.gd" id="2_4ltfs"]
+
+[resource]
+script = ExtResource("2_4ltfs")
+damage = 2
+cool_down = 5.0
+weapon_name = "bomb glove"
+descriptions = Array[String](["[unused]", "throw a bomb in a random direction", "bomb damage increase to 4!", "throw +1 bomb!", "throw +2 more bombs that do 6 damage!", "bombs for everyone!"])
+effect = ExtResource("1_hpve5")
+metadata/_custom_type_script = "uid://cwqnd4y0gio2g"

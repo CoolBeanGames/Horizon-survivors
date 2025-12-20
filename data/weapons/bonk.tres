@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="bonk" load_steps=3 format=3 uid="uid://d0u6ebpdgpkpl"]
+
+[ext_resource type="AudioStream" uid="uid://bfewub7jnq8vj" path="res://audio/sound effects/attacks/zapsplat_multimedia_game_sound_8_bit_blip_bounce_short_112008.mp3" id="1_amlon"]
+[ext_resource type="Script" uid="uid://cc5dcm7jdajk5" path="res://weapons/instances/bonk.gd" id="2_pnrah"]
+
+[resource]
+script = ExtResource("2_pnrah")
+damage = 0
+max_level = 4
+weapon_name = "bonk"
+descriptions = Array[String](["blank", "allows you to jump an enemies heads!", "now jumping on an enemies head does 2 damage!", "jumping on an enemy now spawns a shockwave!", "jump higher, do more damage, and spawn a bigger shockwave!"])
+audio = ExtResource("1_amlon")
+metadata/_custom_type_script = "uid://cc5dcm7jdajk5"

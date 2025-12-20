@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj124d7l6nc28"]
+
+[ext_resource type="Script" uid="uid://cf6nj7apb1fcp" path="res://UI/xp_bar.gd" id="1_i5u07"]
+
+[node name="game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 100
+
+[node name="XP_Bar" type="HBoxContainer" parent="MarginContainer" node_paths=PackedStringArray("level_label", "progress_bar")]
+layout_mode = 2
+script = ExtResource("1_i5u07")
+level_label = NodePath("LEVEL")
+progress_bar = NodePath("ProgressBar")
+
+[node name="Label" type="Label" parent="MarginContainer/XP_Bar"]
+layout_mode = 2
+text = "XP:"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/XP_Bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+
+[node name="LEVEL" type="Label" parent="MarginContainer/XP_Bar"]
+layout_mode = 2
+text = "XP:"

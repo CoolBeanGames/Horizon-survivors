@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dukjbb5tpk0e0"]
+
+[ext_resource type="Texture2D" uid="uid://4vrm5v4akw5k" path="res://Sprites/attacks/bullet_atlas.png" id="1_yr7lh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utl4"]
+atlas = ExtResource("1_yr7lh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33x7u"]
+atlas = ExtResource("1_yr7lh")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6uu3"]
+atlas = ExtResource("1_yr7lh")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e31hn"]
+atlas = ExtResource("1_yr7lh")
+region = Rect2(768, 0, 256, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4utl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33x7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6uu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e31hn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

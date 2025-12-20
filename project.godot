@@ -24,9 +24,14 @@ INPUT="*res://Base/Autoloads/input_manager.gd"
 REFS="*res://Base/Autoloads/reference_manager.gd"
 SCENE="*res://Base/Autoloads/scene_manager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor]
 
-movie_writer/movie_file="C:/Users/CallM/OneDrive/Documentos/bonk.avi"
+movie_writer/movie_file="C:/Users/CallM/OneDrive/Documentos/leveled_up.avi"
 
 [global_group]
 

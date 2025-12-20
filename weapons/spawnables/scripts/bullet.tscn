@@ -1,22 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://ch5y43cij057a"]
 
 [ext_resource type="Script" uid="uid://d1e4air6175ns" path="res://weapons/spawnables/bullet.gd" id="1_f5tw8"]
-[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="2_6fril"]
+[ext_resource type="SpriteFrames" uid="uid://dukjbb5tpk0e0" path="res://Sprites/attacks/bullet.tres" id="2_f5tw8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kfsse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5tw8"]
 radius = 39.812057
 
-[node name="bullet" type="CharacterBody2D"]
+[node name="bullet" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_f5tw8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.61982197, 0.61982197, 1)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("2_6fril")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kfsse")
@@ -27,5 +23,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_f5tw8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 7)
+sprite_frames = ExtResource("2_f5tw8")
+frame_progress = 0.15722378
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

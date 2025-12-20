@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="tomb_of_knowledge" load_steps=2 format=3 uid="uid://b5cynqbtlxurb"]
+
+[ext_resource type="Script" uid="uid://di7m6px0qub05" path="res://weapons/instances/tomb_of_knowledge.gd" id="1_dl6e5"]
+
+[resource]
+script = ExtResource("1_dl6e5")
+xp_mult = 1.0
+damage = 0
+cool_down = 0.0
+weapon_name = "tomb of knowledge"
+descriptions = Array[String](["unused", "increases xp gain by 125%", "increases xp gain by 150%", "increases xp gain by 200%", "increases xp gain by 300%", "increases xp gain by 500%"])
+does_fire = false
+metadata/_custom_type_script = "uid://di7m6px0qub05"

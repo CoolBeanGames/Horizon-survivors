@@ -43,14 +43,29 @@ func switch_state(state_key : String):
 		current_state = states[state_key]
 		current_state.on_enter()
 
+##copy the complete weapon pool into the "active" weapon pool, so we have a fresh list
 func setup_weapon_pool(start_weapon : weapon = null):
 	DATA.write("weapon_pool",weapons.duplicate(true),true)
 	if start_weapon!=null and DATA.read("weapon_pool").has(start_weapon):
 		var index = weapons.find(start_weapon)
 		DATA.read("weapon_pool").remove_at(index)
 
+##returns a random weapon from the list of all weapons
 func get_random_weapon() -> weapon:
-	var pool : Array[weapon] = DATA.read("weapon_pool",[])
+	var pool : Array= DATA.read("weapon_pool",[])
 	if pool.size() == 0:
 		return null
 	return pool[randi_range(0,pool.size()-1)]
+
+##returns a list of 3 weapons from the list
+func get_levelup_list() -> Array[weapon]:
+	var list : Array[weapon]
+	for i in 3:
+		list.append(get_random_weapon())
+	return list
+
+func show_level_up_menu(weapons : Array[weapon]):
+	get_tree().paused = true
+	SCENE.load_ui_scene("level_up" , "res://UI/scenes/level_up.tscn").setup(weapons)
+	
+	

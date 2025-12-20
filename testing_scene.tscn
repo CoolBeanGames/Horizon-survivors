@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dui4v81st57r5"]
+[gd_scene load_steps=7 format=3 uid="uid://dui4v81st57r5"]
 
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_7tmfp"]
 [ext_resource type="Script" uid="uid://cet3k80sddhiw" path="res://entities/border.gd" id="2_j6xku"]
 [ext_resource type="PackedScene" uid="uid://dlfvcws3guljp" path="res://player/player.tscn" id="3_j6xku"]
 [ext_resource type="PackedScene" uid="uid://byrakfgwvd18l" path="res://enemies/enemy_spanwer.tscn" id="4_map4d"]
+[ext_resource type="PackedScene" uid="uid://cj124d7l6nc28" path="res://UI/scenes/game_ui.tscn" id="5_y47j6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_map4d"]
 size = Vector2(129, 129)
@@ -60,3 +61,7 @@ position = Vector2(-601, 286)
 
 [node name="enemy_spanwer2" parent="." instance=ExtResource("4_map4d")]
 position = Vector2(1944, 240)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="game_ui" parent="CanvasLayer" instance=ExtResource("5_y47j6")]

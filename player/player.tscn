@@ -1,54 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlfvcws3guljp"]
+[gd_scene load_steps=7 format=3 uid="uid://dlfvcws3guljp"]
 
 [ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://k41p2bji2q5c" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://cktky4cx7yor8" path="res://weapons/weapon.gd" id="2_hg6s5"]
-[ext_resource type="PackedScene" uid="uid://ch5y43cij057a" path="res://weapons/spawnables/scripts/bullet.tscn" id="2_yw30f"]
-[ext_resource type="Script" uid="uid://c4mqawosk62a2" path="res://weapons/instances/test_gun.gd" id="3_qjkh3"]
-[ext_resource type="PackedScene" uid="uid://ck4tcovlv414b" path="res://enemies/melee_area.tscn" id="4_g6k8r"]
-[ext_resource type="Script" uid="uid://b6svm7sm3fq4e" path="res://weapons/instances/test_melee.gd" id="5_boad6"]
-[ext_resource type="AudioStream" uid="uid://ft137oxbcnye" path="res://audio/sound effects/attacks/zapsplat_nature_thunder_crack_designed_003_31230.mp3" id="5_yllr7"]
-[ext_resource type="PackedScene" uid="uid://7gljb4xb2wuc" path="res://weapons/spawnables/test_lightening.tscn" id="7_8t03j"]
-[ext_resource type="Script" uid="uid://byo7k017483lg" path="res://weapons/instances/test_local.gd" id="8_2ieo8"]
-[ext_resource type="AudioStream" uid="uid://f5vmsvfpfjxs" path="res://audio/sound effects/attacks/zapsplat_warfare_sword_swing_medium_whoosh_blade_ring_002_43816.mp3" id="8_kb6p2"]
-[ext_resource type="Script" uid="uid://cc5dcm7jdajk5" path="res://weapons/instances/bonk.gd" id="9_8t03j"]
-[ext_resource type="AudioStream" uid="uid://bfewub7jnq8vj" path="res://audio/sound effects/attacks/zapsplat_multimedia_game_sound_8_bit_blip_bounce_short_112008.mp3" id="11_wodsf"]
-[ext_resource type="PackedScene" uid="uid://nl1rbq5qh4y6" path="res://weapons/spawnables/bomb.tscn" id="13_wodsf"]
-[ext_resource type="Script" uid="uid://cwqnd4y0gio2g" path="res://weapons/instances/bomb_glove.gd" id="14_32hag"]
-
-[sub_resource type="Resource" id="Resource_2ieo8"]
-script = ExtResource("9_8t03j")
-audio = ExtResource("11_wodsf")
-metadata/_custom_type_script = "uid://cc5dcm7jdajk5"
-
-[sub_resource type="Resource" id="Resource_g6k8r"]
-script = ExtResource("3_qjkh3")
-damage = 5
-effect = ExtResource("2_yw30f")
-metadata/_custom_type_script = "uid://c4mqawosk62a2"
-
-[sub_resource type="Resource" id="Resource_ebec5"]
-script = ExtResource("8_2ieo8")
-damage = 10
-cool_down = 5.0
-effect = ExtResource("7_8t03j")
-audio = ExtResource("5_yllr7")
-metadata/_custom_type_script = "uid://byo7k017483lg"
-
-[sub_resource type="Resource" id="Resource_rgyib"]
-script = ExtResource("5_boad6")
-damage = 5
-cool_down = 1.0
-effect = ExtResource("4_g6k8r")
-audio = ExtResource("8_kb6p2")
-metadata/_custom_type_script = "uid://b6svm7sm3fq4e"
-
-[sub_resource type="Resource" id="Resource_tqiix"]
-script = ExtResource("14_32hag")
-damage = 4
-cool_down = 5.0
-effect = ExtResource("13_wodsf")
-metadata/_custom_type_script = "uid://cwqnd4y0gio2g"
+[ext_resource type="AudioStream" uid="uid://jm2q5iw1y6eu" path="res://audio/sound effects/jump_end.mp3" id="2_tqiix"]
+[ext_resource type="Resource" uid="uid://dqi7f40kdmgyi" path="res://data/weapons/silver_sword.tres" id="4_qjkh3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 65.0
@@ -60,12 +16,9 @@ collision_mask = 3
 script = ExtResource("1_rkbax")
 SPEED = 600.0
 JUMP_VELOCITY = -750.0
+land_on_ground_sound = ExtResource("2_tqiix")
 weapons = Dictionary[String, ExtResource("2_hg6s5")]({
-"bomb_glove": SubResource("Resource_tqiix"),
-"bonk": SubResource("Resource_2ieo8"),
-"gun": SubResource("Resource_g6k8r"),
-"lightening": SubResource("Resource_ebec5"),
-"melee": SubResource("Resource_rgyib")
+"silver sword": ExtResource("4_qjkh3")
 })
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bknpwkgj5oqxs"]
+
+[ext_resource type="Script" uid="uid://20rerk7jyhfl" path="res://UI/level_up.gd" id="1_0shk7"]
+[ext_resource type="PackedScene" uid="uid://bk6hdwukbfdir" path="res://UI/scenes/weapon_panel.tscn" id="2_oskrb"]
+
+[node name="level_up" type="CanvasLayer" node_paths=PackedStringArray("panels")]
+process_mode = 3
+script = ExtResource("1_0shk7")
+panels = [NodePath("main_container/MarginContainer/choices/Panel_0"), NodePath("main_container/MarginContainer/choices/Panel_1"), NodePath("main_container/MarginContainer/choices/Panel_2")]
+
+[node name="main_container" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="main_container"]
+layout_mode = 2
+text = "Leveled up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer 1" type="Label" parent="main_container"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer 2" type="Label" parent="main_container"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="main_container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 0
+
+[node name="choices" type="HBoxContainer" parent="main_container/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Panel_0" parent="main_container/MarginContainer/choices" instance=ExtResource("2_oskrb")]
+layout_mode = 2
+
+[node name="Panel_1" parent="main_container/MarginContainer/choices" instance=ExtResource("2_oskrb")]
+layout_mode = 2
+
+[node name="Panel_2" parent="main_container/MarginContainer/choices" instance=ExtResource("2_oskrb")]
+layout_mode = 2
+
+[node name="Spacer 3" type="Label" parent="main_container"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Reroll" type="Button" parent="main_container/HBoxContainer"]
+layout_mode = 2
+text = "Reroll"
+
+[node name="Skip" type="Button" parent="main_container/HBoxContainer"]
+layout_mode = 2
+text = "Skip"
+
+[node name="Spacer 4" type="Label" parent="main_container"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1

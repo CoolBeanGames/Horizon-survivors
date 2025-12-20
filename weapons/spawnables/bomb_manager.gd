@@ -1,3 +1,7 @@
+##script written by Dustin Booher
+#purpose: manages the bomb throwable
+##created: 12/20/25
+##last edited: 12/20/25
 class_name bomb
 extends CharacterBody2D
 

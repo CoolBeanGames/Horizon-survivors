@@ -1,3 +1,8 @@
+##script written by Dustin Booher
+#purpose: an area to attach to an enemy to allow them to be bonked
+##created: 12/20/25
+##last edited: 12/20/25
+class_name bonk_area
 extends Area2D
 
 @export var attached_enemy : enemy

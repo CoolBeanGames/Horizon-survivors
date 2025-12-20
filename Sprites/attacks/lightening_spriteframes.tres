@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://q1bsxa02pg75"]
+
+[ext_resource type="Texture2D" uid="uid://h7cj4pc48pji" path="res://Sprites/attacks/thunder_atlas.png" id="1_tooe1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj2a6"]
+atlas = ExtResource("1_tooe1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4y15"]
+atlas = ExtResource("1_tooe1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww2co"]
+atlas = ExtResource("1_tooe1")
+region = Rect2(512, 0, 256, 256)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj2a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4y15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww2co")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

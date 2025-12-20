@@ -1,29 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck4tcovlv414b"]
+[gd_scene load_steps=9 format=3 uid="uid://ck4tcovlv414b"]
 
-[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="1_2hhje"]
 [ext_resource type="Script" uid="uid://yqpmonw6vc1w" path="res://weapons/instances/melee_area.gd" id="1_ym1jb"]
+[ext_resource type="Texture2D" uid="uid://d4kujpqmmir7j" path="res://Sprites/attacks/silver_sword_atlas.png" id="2_ym1jb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ym1jb"]
-radius = 50.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wt10n"]
+radius = 51.666668
+height = 209.20001
 
-[node name="melee_area" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iak5j"]
+atlas = ExtResource("2_ym1jb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4c43"]
+atlas = ExtResource("2_ym1jb")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcojw"]
+atlas = ExtResource("2_ym1jb")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slmdh"]
+atlas = ExtResource("2_ym1jb")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kotow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iak5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4c43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcojw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slmdh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="silver_sword" type="Node2D" node_paths=PackedStringArray("sprite")]
 scale = Vector2(3, 5)
 script = ExtResource("1_ym1jb")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_ym1jb")
+shape = SubResource("CapsuleShape2D_wt10n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 1, 0.43137255)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_2hhje")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kotow")
+frame = 3
+frame_progress = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_timer_timeout"]

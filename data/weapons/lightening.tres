@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="test_local" load_steps=4 format=3 uid="uid://cvgonse08y4mi"]
+
+[ext_resource type="AudioStream" uid="uid://ft137oxbcnye" path="res://audio/sound effects/attacks/zapsplat_nature_thunder_crack_designed_003_31230.mp3" id="1_qardu"]
+[ext_resource type="PackedScene" uid="uid://7gljb4xb2wuc" path="res://weapons/spawnables/test_lightening.tscn" id="2_2rjnp"]
+[ext_resource type="Script" uid="uid://byo7k017483lg" path="res://weapons/instances/lightening_weapon.gd" id="3_eobwi"]
+
+[resource]
+script = ExtResource("3_eobwi")
+damage = 10
+cool_down = 5.0
+weapon_name = "lightening"
+effect = ExtResource("2_2rjnp")
+audio = ExtResource("1_qardu")
+metadata/_custom_type_script = "uid://byo7k017483lg"

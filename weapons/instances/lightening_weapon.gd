@@ -1,7 +1,7 @@
 ##script written by Dustin Booher
 #purpose: a simple melee weapon that just shoots a bullet
 ##created: 12/14/25
-##last edited: 12/14/25
+##last edited: 12/20/25
 class_name test_local
 extends weapon
 
@@ -16,3 +16,6 @@ func fire(_plr : player , enm : enemy,_dir : Vector2):
 		instance.global_position = enm.global_position
 		instance.setup(damage,enm)
 		play_audio()
+
+func increase_stats(new_lvl : int):
+	pass

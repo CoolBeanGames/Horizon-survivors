@@ -1,18 +1,89 @@
 [gd_scene load_steps=3 format=3 uid="uid://7gljb4xb2wuc"]
 
-[ext_resource type="Script" uid="uid://bsb6ogbb5fh1t" path="res://weapons/instances/test_lightening.gd" id="1_or5wr"]
-[ext_resource type="Texture2D" uid="uid://5s52sduxt3w4" path="res://icon.svg" id="2_02unp"]
+[ext_resource type="Script" uid="uid://bsb6ogbb5fh1t" path="res://weapons/instances/lightening_manager.gd" id="1_or5wr"]
+[ext_resource type="SpriteFrames" uid="uid://q1bsxa02pg75" path="res://Sprites/attacks/lightening_spriteframes.tres" id="2_or5wr"]
 
-[node name="test_lightening" type="Node2D"]
+[node name="lightening" type="Node2D" node_paths=PackedStringArray("animation_players")]
 script = ExtResource("1_or5wr")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -545.84)
-scale = Vector2(0.2, 10)
-texture = ExtResource("2_02unp")
+animation_players = [NodePath("AnimatedSprite2D"), NodePath("AnimatedSprite2D2"), NodePath("AnimatedSprite2D3"), NodePath("AnimatedSprite2D4"), NodePath("AnimatedSprite2D5"), NodePath("AnimatedSprite2D6"), NodePath("AnimatedSprite2D7"), NodePath("AnimatedSprite2D8"), NodePath("AnimatedSprite2D9"), NodePath("AnimatedSprite2D10"), NodePath("AnimatedSprite2D11"), NodePath("AnimatedSprite2D12"), NodePath("AnimatedSprite2D13"), NodePath("AnimatedSprite2D14"), NodePath("AnimatedSprite2D15")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 38)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -73)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -182)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -291)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -401)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -510.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -621.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -730.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -839.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -949.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -1059.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -1170.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -1279.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -1388.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -1498.5)
+scale = Vector2(0.43359375, 0.43359375)
+sprite_frames = ExtResource("2_or5wr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
