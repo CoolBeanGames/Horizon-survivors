@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("3_pf55r")
 damage = 3
-cool_down = 1.0
 weapon_name = "silver sword"
+descriptions = Array[String](["", "A shining blade to cut through your enemies, does 3 damage every two seconds.", "cool down is reduced to every 1.5 seconds.", "damage is crease to 5!", "add a second slash!", "cool down is reduced to 1 second, size of the slash increases to 150%!"])
 effect = ExtResource("2_3k5a7")
 audio = ExtResource("1_3ggs3")
 metadata/_custom_type_script = "uid://b6svm7sm3fq4e"

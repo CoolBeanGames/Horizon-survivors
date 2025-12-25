@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_4ltfs")
-damage = 2
-cool_down = 5.0
+damage = 5
+cool_down = 6.0
 weapon_name = "bomb glove"
-descriptions = Array[String](["[unused]", "throw a bomb in a random direction", "bomb damage increase to 4!", "throw +1 bomb!", "throw +2 more bombs that do 6 damage!", "bombs for everyone!"])
+descriptions = Array[String](["[unused]", "throw a bomb in a random direction every 6 seconds dealing 5 damage to any enemies in the blast radius/", "bomb radius is increased to 130%!", "throw +1 bomb!", "cooldown is reduced by 2 seconds!", "bombs for everyone! Throw 3 additional bombs!"])
 effect = ExtResource("1_hpve5")
 metadata/_custom_type_script = "uid://cwqnd4y0gio2g"

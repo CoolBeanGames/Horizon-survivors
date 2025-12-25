@@ -6,9 +6,10 @@
 
 [resource]
 script = ExtResource("3_eobwi")
-damage = 10
-cool_down = 5.0
+damage = 5
+cool_down = 8.0
 weapon_name = "lightening"
+descriptions = Array[String](["", "a bolt of thunder from the heaven stricks down every 8 seconds dealing 5 damage to a random enemy.", "two bolts strike every 8 seconds", "a 3rd bold striles every 8 seconds", "cooldown is reduced to every 4 seconds", "5 bolts now strike every 3 seconds dealing 10 damage!"])
 effect = ExtResource("2_2rjnp")
 audio = ExtResource("1_qardu")
 metadata/_custom_type_script = "uid://byo7k017483lg"
